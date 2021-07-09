@@ -1,11 +1,11 @@
 import React from "react";
 import { View } from "react-native";
-
+import AppButton from "./app/components/AppButton";
 import AppText from "./app/components/AppText";
 export default function App() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <AppText>I love Reacr Native</AppText>
+      <AppButton title="Login" onPress={() => console.log("Tapped")} />
     </View>
   );
 }
