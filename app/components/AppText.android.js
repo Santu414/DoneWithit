@@ -7,10 +7,8 @@ function AppText({ children }) {
 const styles = StyleSheet.create({
   text: {
     color: "red",
-    ...Platform.select({
-      ios: { fontSize: 20, fontFamily: "Roboto" },
-      android: { fontSize: 24, fontFamily: "Avireno" },
-    }),
+    fontSize: 24,
+    fontFamily: "Avireno",
   },
 });
 export default AppText;
