@@ -1,10 +1,11 @@
 import React from "react";
-import { FlatList, SafeAreaView, StyleSheet } from "react-native";
+import { FlatList, View, StyleSheet } from "react-native";
 
 import Constants from "expo-constants";
 
-import ListItem from "./ListItem";
+import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
+import ListItemSeparator from "../components/ListItemSeparator";
 const message = [
   {
     id: 1,
@@ -32,6 +33,7 @@ function MessageScreen(props) {
             image={item.image}
           />
         )}
+        ItemSeparatorComponent={ListItemSeparator}
       />
     </Screen>
   );
