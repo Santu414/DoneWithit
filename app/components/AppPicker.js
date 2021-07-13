@@ -14,12 +14,19 @@ import defaultStyles from "../config/styles";
 import AppText from "./AppText";
 import PickerItem from "./PickerItem";
 import Screen from "./Screen";
-function AppPicker({ icon, selectedItem, items, onSelectItem, placeholder }) {
+function AppPicker({
+  icon,
+  selectedItem,
+  items,
+  onSelectItem,
+  placeholder,
+  width,
+}) {
   const [modelVisible, setModelVisible] = useState(false);
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModelVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -65,7 +72,6 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
     padding: 25,
     marginVertical: 10,
   },
