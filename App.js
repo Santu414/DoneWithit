@@ -5,5 +5,5 @@ import ListingEditScreen from "./app/screens/ListingEditScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 export default function App() {
-  return <ListingDetailsScreen />;
+  return <ListingEditScreen />;
 }
