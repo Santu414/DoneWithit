@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import colors from "../config/colors";
 
@@ -31,4 +31,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
 export default AppButton;
