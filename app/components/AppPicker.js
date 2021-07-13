@@ -19,6 +19,7 @@ function AppPicker({
   selectedItem,
   items,
   onSelectItem,
+  PickerItemComponent = PickerItem,
   placeholder,
   width,
 }) {
@@ -52,7 +53,7 @@ function AppPicker({
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
                 label={item.label}
                 onPress={() => {
                   setModelVisible(false);
