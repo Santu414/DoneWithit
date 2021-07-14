@@ -1,9 +1,17 @@
-import React, { useState } from "react";
-import LoginScreen from "./app/screens/LoginScreen";
-import RegisterScreen from "./app/screens/RegisterScreen";
-import ListingEditScreen from "./app/screens/ListingEditScreen";
-import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import React, { useEffect } from "react";
+import * as ImagePicker from "expo-image-picker";
+
+import Screen from "./app/components/Screen";
 
 export default function App() {
-  return <ListingEditScreen />;
+  const requsetPermission = async () => {
+    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync;
+    if (!granted) {
+      alert("You need to enable the access to the library");
+    }
+  };
+  useEffect(() => {
+    requsetPermission();
+  }, []);
+  return <Screen></Screen>;
 }
