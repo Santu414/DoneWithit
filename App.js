@@ -16,6 +16,7 @@ export default function App() {
   useEffect(() => {
     requsetPermission();
   }, []);
+
   selectImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
@@ -24,11 +25,13 @@ export default function App() {
       console.log("Error Reading an Image", error);
     }
   };
+
   return (
     <Screen>
-      <Button title="Select Image" onPress={selectImage} />
-      <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
-      <ImageInput imageUri={imageUri} />
+      <ImageInput
+        onChangeImage={(uri) => setImageUri(uri)}
+        imageUri={imageUri}
+      />
     </Screen>
   );
 }
