@@ -7,18 +7,28 @@ import Screen from "../components/Screen";
 
 import routes from "../navigation/routes";
 import listingsApi from "../api/listings";
-
+import AppText from "../components/Text";
+import Button from "../components/Button";
 function ListingsScreen({ navigation }) {
   const [listings, setListings] = useState([]);
+  const [error, setError] = useState(false);
+
   useEffect(() => {
     loadListings();
   }, []);
   const loadListings = async () => {
     const response = await listingsApi.getListings();
+    if (!response.ok) return setError(true);
     setListings(response.data);
   };
   return (
     <Screen style={styles.screen}>
+      {error && (
+        <>
+          <AppText>Couldn't Retrive the Listings.....</AppText>
+          <Button title="Retry" onPress={loadListings}></Button>
+        </>
+      )}
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
