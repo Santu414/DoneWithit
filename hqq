@@ -1,4 +1,5 @@
-[33m547aae1[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m Tracking upload changes
+[33mebc6ccc[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m Built the Upload Screen
+[33m547aae1[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Tracking upload changes
 [33mfb31465[m Extended API layer for posting the data
 [33m065c868[m Created Re-useable Hook for APIs
 [33m9bcba29[m Built the Beautiful Activity Indicator using expo lottie-react-native library
@@ -7,7 +8,7 @@
 [33md8e19ce[m Creating API Layer and fetching data
 [33m905aa93[m Created API Layer
 [33ma6c4971[m Installed apisauce and started working on it
-[33me5787f3[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Refactor the routes by creating route file
+[33me5787f3[m Refactor the routes by creating route file
 [33mc06c053[m Beatified the Tabs
 [33m6bf38eb[m Built Account Navigator
 [33m54f69a4[m Built Feed Navigator

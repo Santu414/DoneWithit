@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { FlatList, StyleSheet } from "react-native";
 
 import ActivityIndicator from "../components/ActivityIndicator";
+import Button from "../components/Button";
 import Card from "../components/Card";
 import colors from "../config/colors";
-import Screen from "../components/Screen";
-
-import routes from "../navigation/routes";
 import listingsApi from "../api/listings";
+import routes from "../navigation/routes";
+import Screen from "../components/Screen";
 import AppText from "../components/Text";
-import Button from "../components/Button";
 import useApi from "../hooks/useApi";
 
 function ListingsScreen({ navigation }) {
   const getListingsApi = useApi(listingsApi.getListings);
+
   useEffect(() => {
-    getListingsApi.request(1, 2, 3);
+    getListingsApi.request();
   }, []);
 
   return (
     <Screen style={styles.screen}>
       {getListingsApi.error && (
         <>
-          <AppText>Couldn't Retrive the Listings.....</AppText>
-          <Button title="Retry" onPress={loadListings}></Button>
+          <AppText>Couldn't retrieve the listings.</AppText>
+          <Button title="Retry" onPress={getListingsApi.request} />
         </>
       )}
       <ActivityIndicator visible={getListingsApi.loading} />

@@ -6,34 +6,31 @@ import {
   TouchableWithoutFeedback,
   Alert,
 } from "react-native";
-
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 
 import colors from "../config/colors";
 
 function ImageInput({ imageUri, onChangeImage }) {
-  const requsetPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync;
-    if (!granted) {
-      alert("You need to enable the access to the library");
-    }
-  };
-
   useEffect(() => {
-    requsetPermission();
+    requestPermission();
   }, []);
+
+  const requestPermission = async () => {
+    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!granted) alert("You need to enable permission to access the library.");
+  };
 
   const handlePress = () => {
     if (!imageUri) selectImage();
     else
       Alert.alert("Delete", "Are you sure you want to delete this image?", [
         { text: "Yes", onPress: () => onChangeImage(null) },
-        { text: "NO" },
+        { text: "No" },
       ]);
   };
 
-  selectImage = async () => {
+  const selectImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -41,7 +38,7 @@ function ImageInput({ imageUri, onChangeImage }) {
       });
       if (!result.cancelled) onChangeImage(result.uri);
     } catch (error) {
-      console.log("Error Reading an Image", error);
+      console.log("Error reading an image", error);
     }
   };
 
@@ -50,8 +47,8 @@ function ImageInput({ imageUri, onChangeImage }) {
       <View style={styles.container}>
         {!imageUri && (
           <MaterialCommunityIcons
-            name="camera"
             color={colors.medium}
+            name="camera"
             size={40}
           />
         )}
@@ -66,14 +63,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.light,
     borderRadius: 15,
-    overflow: "hidden",
     height: 100,
     justifyContent: "center",
+    marginVertical: 10,
+    overflow: "hidden",
     width: 100,
   },
   image: {
-    width: "100%",
     height: "100%",
+    width: "100%",
   },
 });
+
 export default ImageInput;

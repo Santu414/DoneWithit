@@ -15,5 +15,6 @@ export default useApi = (apiFunc) => {
     setError(false);
     setData(response.data);
   };
+
   return { data, error, loading, request };
 };
