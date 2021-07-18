@@ -1,6 +1,7 @@
 import React from "react";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Text } from "react-native";
 
 export default function App() {
   const demo = async () => {
@@ -14,5 +15,5 @@ export default function App() {
     }
   };
   demo();
-  return null;
+  return <Text style={{ color: "black" }}>HI</Text>;
 }
