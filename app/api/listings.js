@@ -3,7 +3,6 @@ import client from "./client";
 const endpoint = "/listings";
 
 const getListings = () => client.get(endpoint);
-console.log(getListings);
 
 export const addListing = (listing, onUploadProgress) => {
   const data = new FormData();
