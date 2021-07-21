@@ -10,6 +10,14 @@
       "resizeMode": "cover",
       "backgroundColor": "#e63c4b"
     },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "sounds": ["local/path/to/mySoundFile.wav"]
+        }
+      ]
+    ],
     "updates": {
       "fallbackToCacheTimeout": 0
     },
